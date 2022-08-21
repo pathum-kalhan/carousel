@@ -1,0 +1,101 @@
+.carouselContainer {
+    display: flex;
+    background-color: black;
+    // border:10px solid red;
+    justify-content: center;
+}
+
+.carousel {
+    position: relative;
+    //    border:1px solid red
+}
+
+
+
+.previous {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    cursor: pointer;
+}
+
+.next {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    cursor: pointer;
+
+}
+
+.details {
+    position: absolute;
+    top: 75%;
+    margin: auto;
+    width: 100%;
+    // left:50%;
+    text-align: center;
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+img {
+    object-fit: contain;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .carousel,
+    img {
+        max-width: 500px;
+        border: 1px solid red;
+    }
+
+    .details>h1 {
+        font-size: 1rem;
+    }
+
+    .details>h2 {
+        font-size: 0.7rem;
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+
+    .carousel,
+    img {
+        max-width: 738px;
+        border: 1px solid orange;
+
+    }
+    // .details>h1 {
+    //     font-size: 1rem;
+    // }
+
+    // .details>h2 {
+    //     font-size: 0.7rem;
+    // }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+
+    .carousel,
+    img {
+        max-width: 962px;
+
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+
+    .carousel {
+        max-width: 1170px;
+    }
+}
