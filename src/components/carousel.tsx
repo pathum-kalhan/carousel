@@ -9,6 +9,8 @@ import "./animations.css"
 export default function Carousel(props: Props) {
   const { slides, infinite } = props;
   const [current, setCurrent] = useState<number>(0);
+  const [error, setError] = useState<boolean>(false);
+
   const [items, setItems] = useState<CarouselItem[]>([]);
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -37,7 +39,9 @@ export default function Carousel(props: Props) {
         });
 
         setItems(data);
-      } catch (error) {}
+      } catch (error) {
+        setError(true)
+      }
     })();
   }, [slides]);
 
@@ -50,8 +54,16 @@ export default function Carousel(props: Props) {
 
   return (
     <div className={classes.carouselContainer}>
-     
-      {items && items.length && (
+      {error && (
+
+     <div className={classes.error}>
+      <h1>
+      Something went wrong
+
+      </h1>
+      </div>
+      )}
+      {items && items.length ? (
         <div className={classes.carousel}>
           <img
             src={items[current].image}
@@ -75,7 +87,7 @@ export default function Carousel(props: Props) {
             handleSlider={handleSlider}
           />
         </div>
-      )}
+      ):null}
     </div>
   );
 }
